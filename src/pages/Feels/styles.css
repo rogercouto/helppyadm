@@ -1,0 +1,132 @@
+.feel-container{
+    min-height: 400px;
+    display: flex;
+    flex-direction: column;
+}
+
+.newfeel-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+#newfeel-btn{
+    font-weight: bold;
+}
+
+#newfeel-btn-pressed{
+    font-weight: bold;
+    filter: brightness(75%);
+}
+
+.feel-form-container {
+    background-color: #BBB;
+}
+
+#feel-form{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+#feel-form-hide{
+    display: none;
+}
+
+.feel-form-container form input{
+    margin: 10px;
+    min-width: 80px;
+}
+
+.feel-form-container form textarea{
+    margin: 10px;
+    min-width: 300px;
+}
+
+.feel-form-container form div{
+    height: 220px;
+    width: 90px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.feel-form-container form div button{
+    margin: 5px;
+    padding: 5px;
+    width: 95px;
+}
+
+.feel-container table tbody tr td{
+    border: 0;
+    background-color: #CCC;
+    align-content: center;
+    vertical-align: top;
+    margin: 15px;
+    padding: 15px;
+    max-width: 200px;
+
+}
+
+.feel-container table tbody tr td.small-td{
+    max-width: 80px;
+}
+
+.feel-container table tbody tr td.small-td button{
+    width: 80px;
+}
+
+@media (max-width:1024px){
+
+    .feel-container table tr{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #feel-form{
+        display: flex;
+        flex-direction: column;
+    }
+
+    .feel-form-container form div{
+        height: auto;
+        width: auto;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+
+    .feel-form-container form textarea{
+        min-width: auto;
+        width: 90%;
+    }
+
+    .feel-form-container form div button{
+        width: 100px;
+    }
+
+    .feel-container table{
+        display: flex;
+        flex-direction: column;
+        
+    }
+    
+    .feel-container table tbody tr td{
+        width: 100%;
+        background-color: #DDD;
+        align-content: center;
+        vertical-align: top;
+        margin: 1px;
+        padding: 5px;
+        max-width: unset;
+        width: 100%;
+    }
+    
+    .feel-container table tbody tr td span{
+        background-color: unset;
+    }
+
+    .feel-container table tbody tr td.small-td{
+        max-width: unset;
+    }
+}

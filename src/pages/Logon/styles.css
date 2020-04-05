@@ -1,0 +1,27 @@
+.logon-container{
+    background-color: #CCC;
+    width: 100%;
+    max-width: 600px;
+    margin: 5% auto auto auto;
+    padding: 25px;
+    text-align: center;
+}
+
+.logon-container img{
+    width: 300px;
+}
+
+.logon-container h1{
+    text-align: center;
+    margin: 10px;
+}
+
+.logon-container section{
+    text-align: right;
+}
+
+.logon-container section button{
+    margin-top: 15px;
+    padding: 5px 20px;
+    font-weight: bold;
+}

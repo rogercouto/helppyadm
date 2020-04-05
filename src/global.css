@@ -1,0 +1,56 @@
+@import url('https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font: 400 14px Roboto, sans-serif;
+    background: #c1c1c2;
+    -webkit-font-smoothing: antialiased;
+}
+
+input, button, textarea{
+    font: 400 18px Roboto, sans-serif;
+}
+
+button{
+    cursor: pointer;
+}
+
+button{
+    width: auto;
+    padding: 5px 10px;
+    border: 1px solid #CCC;
+    border-radius: 5px;
+    background-color: #ffe700;
+    filter: brightness(95%);
+    transition: filter 0.2s;
+    font-size: 14px;
+    margin-right: 5px;
+}
+
+button:hover{
+    filter: brightness(105%);
+}
+
+input,textarea, select{
+    border: 1px solid #DDD;
+    border-radius: 5px;
+    padding: 5px;
+    margin: 15px 20px 5px 20px;
+}
+
+input[type=file], input[type=color], input[type=checkbox]{
+    border: 0;
+    padding: 0;
+    margin: 10px;
+    font-size: 14px;
+}
+
+textarea{
+    height: 200px;
+}

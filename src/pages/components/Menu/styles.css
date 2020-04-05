@@ -1,0 +1,32 @@
+.old-nav nav{
+    background-color: #FFF;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.old-nav nav a{
+    text-decoration: none;
+    display: block;
+    padding: 5px 10px;
+    text-align: center;
+    color: #000;
+    margin: 0;
+    font-weight: bold;
+}
+
+.old-nav nav a:hover{
+    color: #333;    
+    background-color: #ffe700;
+    border-radius: 10px;
+}
+
+
+@media (max-width:600px){
+    .old-nav nav{
+        display: inline;
+        background-color: #BBB;
+    }
+    .old-nav nav a{
+        background-color: #BBB;
+    }
+}
