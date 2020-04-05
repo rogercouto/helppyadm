@@ -114,12 +114,12 @@ export default function Feels(){
         <Layout>
             <div className="feel-container">
                 <div className="newfeel-container">
-                    <h2>Condiçẽs</h2>
+                    <h2>Condições</h2>
                     <button 
                         id={editState === STATE_CREATING?'newfeel-btn-pressed':'newfeel-btn'}
                         onClick={handleNewContent}
                         >
-                        <FaPlusCircle/>Criar conteúdo
+                        <FaPlusCircle/>Criar condição
                     </button>
                 </div>
                 <div className="feel-form-container">
