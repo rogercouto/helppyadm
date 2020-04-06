@@ -53,6 +53,19 @@ export default function Posts(){
         }
     }
 
+    function renderYtFrame(link){
+        return (
+            <iframe 
+                title="yt-frame" 
+                width="350" 
+                height="200" 
+                src={link} 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen></iframe>
+        );
+    }
+
     function renderPost(post){
         const haveAtachment = post.media !== null
                         && post.media_type !== 'image' 
@@ -60,7 +73,7 @@ export default function Posts(){
                         && post.media_type !== 'youtube';
         return(
             <li key={post.id} style={{height: "100%"}}>
-                <h3>{post.title}</h3>
+                <h3>{post.title}&nbsp;</h3>
                 <div style={post.divStyle}>
                     <span style={post.textStyle}>{post.text}</span>
                     {post.media_type === 'image' &&
@@ -71,6 +84,7 @@ export default function Posts(){
                             <source src={post.media} type="video/mp4"></source>
                         </video>
                     }
+                    {post.media_type === 'youtube' && renderYtFrame(post.media)}
                 </div>
                 <div className={haveAtachment ? "post-footer-wa" : "post-footer"}>
                     {haveAtachment &&

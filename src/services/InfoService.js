@@ -21,7 +21,9 @@ const InfoService = {
             }); 
             return response.status;
         } catch (error) {
-            console.log(error);
+            if (error.response.data.message === 'Info with this key already exists.')
+                error.response.data.message = 'Já existe um conteúdo com essa chave!';
+            alert(error.response.data.message);
             return error.response.status;
         }
     },
@@ -40,7 +42,7 @@ const InfoService = {
             }); 
             return response.status;
         } catch (error) {
-            console.log(error);
+            alert(error.response.data.message);
             return error.response.status;
         }
     },
@@ -58,7 +60,7 @@ const InfoService = {
             }); 
             return response.status;
         } catch (error) {
-            console.log(error);
+            alert(error.response.data.message);
             return error.response.status;
         }
     }

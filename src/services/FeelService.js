@@ -21,7 +21,7 @@ const FeelService = {
             }); 
             return response.status;
         } catch (error) {
-            console.log(error);
+            alert(error.response.data.message);
             return error.response.status;
         }
     },
@@ -44,7 +44,7 @@ const FeelService = {
             }); 
             return response.status;
         } catch (error) {
-            console.log(error);
+            alert(error.response.data.message);
             return error.response.status;
         }
     },
@@ -62,7 +62,7 @@ const FeelService = {
             }); 
             return response.status;
         } catch (error) {
-            console.log(error);
+            alert(error.response.data.message);
             return error.response.status;
         }
     }

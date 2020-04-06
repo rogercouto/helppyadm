@@ -16,7 +16,7 @@ function getTotalPages(response){
 const PostService = {
 
     async getPage(pageNum){
-        const response = await api.get('posts',{params: { page: pageNum }});
+        const response = await api.get('posts',{params: { page: pageNum, fullytlink: 'true' }});
         const page = {
             posts : response.data,
             total: response.headers['x-total-count'],
@@ -47,15 +47,17 @@ const PostService = {
             }); 
             return response.status;
         } catch (error) {
-            console.log(error);
+            alert(error.response.data.message);
             return error.response.status;
         }
     },
 
     async update(post){
         const admin = JSON.parse(localStorage.getItem('admin'));
-        if (!admin)
+        if (!admin){
+            alert('Sem autorização');
             return STATUS.UNAUTHORIZED;
+        }
         const bearerToken = 'Bearer '+admin.token;
         try {
             const data = {
@@ -75,7 +77,7 @@ const PostService = {
             }); 
             return response.status;
         } catch (error) {
-            console.log(error);
+            alert(error.response.data.message);
             return error.response.status;
         }
     },
@@ -100,7 +102,7 @@ const PostService = {
             });
             return response.status;
         } catch (error) {
-            console.log(error);
+            alert(error.response.data.message);
             return error.response.status;
         }
     },
@@ -125,7 +127,7 @@ const PostService = {
             });
             return response.status;
         } catch (error) {
-            console.log(error);
+            alert(error.response.data.message);
             return error.response.status;
         }
     },
@@ -141,6 +143,7 @@ const PostService = {
                 }});
             return response.status;
         } catch (error) {
+            alert(error.response.data.message);
             return error.response.status;
         }
     }

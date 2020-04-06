@@ -43,6 +43,33 @@ function checkLinkType(link){
     return 'link';
 }
 
+function checkLink(post) {
+    if (!post || !post.media)
+        return;
+    if (post.media.includes('https://youtu.be/')) {
+        let tmp = post.media.replace('https://youtu.be/','').split('?');
+        if (tmp.length > 0){
+            post.media = tmp[0];
+            post.media_type = 'youtube';
+        }
+    }else if (post.media.includes('https://www.youtube.com/watch?v=')){
+        let tmp = post.media.replace('https://www.youtube.com/watch?v=','').split('?');
+        if (tmp.length > 0){
+            post.media = tmp[0];
+            post.media_type = 'youtube';
+        }
+    }else if (post.media.endsWith('.jpg')
+    ||post.media.endsWith('.jpeg')
+    ||post.media.endsWith('.png')){
+        post.media_type = 'image';
+    }
+}
+
+function isYt(link){
+    return (link.includes('https://youtu.be/') 
+    || link.includes('https://www.youtube.com'));
+}
+
 function getImage(post){
     if (post && post.media && post.media_type === 'image'){
         return post.media;
@@ -149,6 +176,27 @@ export default function PostForm(props){
 
     async function handleSubmit(e){
         e.preventDefault();
+        if (post.title === ''){
+            post.title = null;
+        }
+        if (post.text === ''){
+            post.text = null;
+        }
+        if (post.media === ''){
+            post.media = null;
+        }
+        checkLink(post);
+        if (!post.text && !post.media){
+            alert('Publicação sem conteúdo!');
+            return;
+        }
+        if (!post.text && post.media){
+            if (!post.title && post.media_type === 'link'){
+                alert('Publicação com links devem ter um título ou texto!');
+                return;
+            }
+        }
+        console.log(post.media_type);
         let status;
         if (!post.id){
             if (!mediaFile){
@@ -168,8 +216,22 @@ export default function PostForm(props){
         }
     }
 
+    function renderYtFrame(link){
+        return (
+            <iframe 
+                title="yt-frame" 
+                width="350" 
+                height="200" 
+                src={link} 
+                frameBorder="0" 
+                allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen>
+                </iframe>
+        );
+    }
+
     function renderPreview(){
-        const withScreenMedia = image || video;
+        const withScreenMedia = image || video || isYt(mediaLink);
         return(
             <li key='li1' style={{height: "100%"}}>
                 <p>(pré-visualização)</p>
@@ -186,6 +248,7 @@ export default function PostForm(props){
                             <source src={video} type="video/mp4"></source>
                         </video>
                     }
+                    {isYt(mediaLink) && renderYtFrame(mediaLink)}
                 </div>
                 <div className={atachment ? "post-footer-wa" : "post-footer"}>
                     {atachment &&

@@ -1,5 +1,5 @@
 import React,{useState, useEffect} from 'react';
-import { FaPlusCircle, FaEdit, FaTrash, FaSave, FaWindowClose, FaStepBackward } from 'react-icons/fa'
+import { FaPlusCircle, FaEdit, FaTrash, FaSave, FaWindowClose } from 'react-icons/fa'
 
 import service from '../../services/FeelService';
 import * as STATUS from '../../services/ResponseStatus';
@@ -127,14 +127,17 @@ export default function Feels(){
                         onSubmit={handleSave}
                     >  
                         <input placeholder="Título" 
+                            required
                             value={title}
                             onChange={e => setTitle(e.target.value)}
                         />
                         <input placeholder="Sub-Título" 
+                            required
                             value={subtitle}
                             onChange={e => setSubtitle(e.target.value)}
                         />
                         <textarea placeholder="Descrição" 
+                            required
                             value={descr}
                             onChange={e => setDescr(e.target.value)}
                         />
