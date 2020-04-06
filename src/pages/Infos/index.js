@@ -125,15 +125,18 @@ export default function Infos(){
                         <input placeholder="Chave (única)" 
                             value={key}
                             onChange={e => setKey(e.target.value)}
-                            disabled={editState === STATE_UPDATING}
+                            disabled={editState === STATE_UPDATING} 
+                            required
                         />
                         <input placeholder="Título" 
                             value={title}
                             onChange={e => setTitle(e.target.value)}
+                            required
                         />
                         <textarea placeholder="Texto" 
                             value={text}
                             onChange={e => setText(e.target.value)}
+                            required
                         />
                         <div>
                             <button><FaSave/>Salvar</button>
